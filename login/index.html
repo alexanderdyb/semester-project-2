@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Auction House - From unique to Antique" />
-    <title>Auction House</title>
+    <meta name="description" content="Login for Auction House" />
+    <title>Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,16 +15,16 @@
       src="https://kit.fontawesome.com/b23335820a.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="dist/styles.css" />
-    <script src="./src/js/main.mjs" defer type="module"></script>
+    <link rel="stylesheet" href="../dist/styles.css" />
+    <script src="../src/js/main.mjs" defer type="module"></script>
   </head>
   <body>
     <header>
       <nav class="bg-custom-light" id="navbar">
         <div class="flex justify-between max-w-7xl mx-auto px-4">
-          <a href="./">
+          <a href="/">
             <img
-              src="./src/assets/images/logo-black-nav.png"
+              src="../src/assets/images/logo-black-nav.png"
               alt="logo"
               id="logo"
             />
@@ -35,10 +35,7 @@
               id="menu"
             >
               <li class="mb-5 md:mb-0">
-                <a href="/login">Profile</a>
-              </li>
-              <li class="mb-5 md:mb-0">
-                <a href="/login" class="btn">Login</a>
+                <a href="/login" class="btn"> Login </a>
               </li>
             </ul>
           </div>
@@ -58,40 +55,45 @@
       </nav>
     </header>
     <main>
-      <section>
-        <div class="h-96 w-full">
-          <img
-            src="./src/assets/images/gold-smoke.jpg"
-            class="object-cover w-full h-full"
-          />
+      <section class="px-4 py-24">
+        <div class="max-w-lg mx-auto rounded-2xl bg-custom-beige p-5">
+          <form id="loginForm">
+            <h2 class="text-center mb-5">Login</h2>
+            <div class="flex flex-col mb-3">
+              <label for="email">E-mail</label>
+              <input
+                class="border-[1px] border-gray-400 p-1"
+                type="email"
+                name="email"
+                required
+                pattern="^[\w\-.]+@(stud.)?noroff.no$"
+                title="The email value must be a valid stud.noroff.no or noroff.no email address."
+              />
+              <label for="password" class="">Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                class="border-[1px] border-gray-400 p-1"
+                required
+                minlength="8"
+              />
+            </div>
+            <button
+              class="border-2 w-full bg-custom-black text-white py-2 mb-3 border-none"
+            >
+              Login
+            </button>
+            <a href="../register" class="underline text-center">Register</a>
+          </form>
+          <div id="errorMessage" class="mt-3 text-red-400"></div>
         </div>
       </section>
-      <section class="bg-custom-beige px-4 py-24">
-        <div class="text-center">
-          <h1 class="text-3xl md:text-5xl">From unique to Antique</h1>
-          <h2 class="text-1xl md:text-2xl mt-3">AUCTION HOUSE</h2>
-          <div class="mt-8">
-            <a href="/register/" class="cta">Register</a>
-          </div>
-        </div>
-      </section>
-      <section class="px-4 py-24 bg-custom-light">
-        <h2 class="text-center">Recent listings</h2>
-        <div class="mb-3 mt-6">
-          <input
-            type="search"
-            class="m-0 block max-w-200px mx-auto min-w-0 flex-auto rounded-2xl border border-solid border-[#707070] bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:text-neutral-700 focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
-            id="exampleSearch"
-            placeholder="Type query"
-          />
-        </div>
-      </section>
-      <section></section>
     </main>
     <footer class="bg-custom-black px-4 py-24">
       <div class="max-w-[200px] mx-auto">
         <img
-          src="./src/assets/images/logo-white.png"
+          src="../src/assets/images/logo-white.png"
           alt="logo"
           class="object-cover"
         />
