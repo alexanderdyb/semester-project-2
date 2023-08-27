@@ -2,7 +2,7 @@
   "name": "semester-project-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.mjs",
   "scripts": {
     "start": "postcss ./src/css/styles.css -o ./dist/styles.css --watch & live-server",
     "build": "postcss ./src/css/styles.css -o ./dist/styles.css"

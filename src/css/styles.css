@@ -3,29 +3,19 @@
 @tailwind utilities;
 
 body {
-  @apply text-[#161616];
-  @apply font-bodytext;
+  @apply text-[#161616] font-bodytext;
 }
 
 h1 {
-  @apply font-headline;
-  @apply text-[2rem];
-  @apply sm:text-[2.5rem];
-  @apply md:text-[3rem];
+  @apply font-headline text-[2rem] sm:text-[2.5rem] md:text-[3rem];
 }
 
 h2 {
-  @apply font-bodytext;
-  @apply text-[1.625rem];
-  @apply sm:text-[2rem];
-  @apply md:text-[2.25rem];
+  @apply font-bodytext text-[1.625rem] sm:text-[2rem] md:text-[2.25rem];
 }
 
 h3 {
-  @apply font-bodytext;
-  @apply text-[1.375rem];
-  @apply sm:text-[1.5rem];
-  @apply md:text-[1.75rem];
+  @apply font-bodytext text-[1.375rem] sm:text-[1.5rem] md:text-[1.75rem];
 }
 
 .btn {
