@@ -1,11 +1,11 @@
 import { navbarHandler } from "./components/navbar.mjs";
 import * as listeners from "./handlers/index.mjs";
 import { toggleUI } from "./ui/authUI.mjs";
-import { bindLogoutEvent } from "./handlers/logout.mjs";
+import { logoutEvent } from "./handlers/index.mjs";
 
 function initializeApp() {
   toggleUI();
-  bindLogoutEvent();
+  logoutEvent();
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {
