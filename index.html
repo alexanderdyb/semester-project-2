@@ -35,13 +35,15 @@
               id="menu"
             >
               <li class="mb-5 md:mb-0">
-                <a href="/login">Profile</a>
+                <a href="/login" data-visible="loggedIn">Profile</a>
               </li>
               <li class="mb-5 md:mb-0">
                 <a href="/login" class="btn" data-visible="loggedOut">Login</a>
               </li>
               <li>
-                <button type="button" data-visible="loggedIn">Logout</button>
+                <button type="button" data-visible="loggedIn" id="logoutBtn">
+                  Logout
+                </button>
               </li>
             </ul>
           </div>
@@ -69,7 +71,7 @@
           />
         </div>
       </section>
-      <section class="bg-custom-beige px-4 py-24">
+      <section class="bg-custom-beige px-4 py-24" data-visible="loggedOut">
         <div class="text-center">
           <h1 class="text-3xl md:text-5xl">From unique to Antique</h1>
           <h2 class="text-1xl md:text-2xl mt-3">AUCTION HOUSE</h2>
