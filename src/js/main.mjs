@@ -9,4 +9,7 @@ switch (path) {
   case "/register/":
     listeners.registerFormListener();
     break;
+  case "/login/":
+    listeners.loginFormListener();
+    break;
 }

@@ -1,3 +1,3 @@
 export * from "./save.mjs";
-export * from "./remove.js";
-export * from "./load.js";
+export * from "./load.mjs";
+export * from "./remove.mjs";

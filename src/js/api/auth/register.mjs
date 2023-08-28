@@ -17,5 +17,5 @@ export async function register(profile) {
     return await response.json();
   }
 
-  throw new Error(response.statusText);
+  throw new Error(`Registration failed with status: ${response.status}}`);
 }

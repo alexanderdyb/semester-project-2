@@ -19,8 +19,12 @@ export function registerFormListener() {
         successMessage.innerHTML = `<p class="font-bold mb-8">Success! You're registered and can now log in.</p>
         <a href="/login/" class="btn">Login</a>`;
       } catch (error) {
-        displayError(error, errorMessageElement);
+        const customRegisterError =
+          "An unexpected error occurred. Please try again later.";
+        displayError(error, errorMessageElement, customRegisterError);
         errorMessageElement.classList.remove("hidden");
+
+        console.error("Registration error:", error);
       }
     });
   }
