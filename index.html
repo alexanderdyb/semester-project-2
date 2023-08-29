@@ -82,7 +82,7 @@
       </section>
       <section class="px-4 py-24 bg-custom-light">
         <h2 class="text-center">Recent listings</h2>
-        <div class="mb-3 mt-6">
+        <div class="pb-10 mt-6">
           <input
             type="search"
             class="m-0 block max-w-200px mx-auto min-w-0 flex-auto rounded-2xl border border-solid border-[#707070] bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:text-neutral-700 focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
@@ -90,8 +90,38 @@
             placeholder="Type query"
           />
         </div>
+        <div id="listings">
+          <div class="grid grid-cols-1 gap-4 max-w-5xl mx-auto sm:grid-cols-2">
+            <div>
+              <div>
+                <img src="./src/assets/images/camera.jpg" alt="Camera" />
+              </div>
+              <div class="bg-white p-5">
+                <div class="mb-5">
+                  <p>Camera</p>
+                  <p>5 days left</p>
+                  <p>Highest bid: 50</p>
+                </div>
+                <div class="border text-center py-2">
+                  <a href="#" class="d-block w-100 h-100">Details</a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <img src="./src/assets/images/camera.jpg" alt="Camera" />
+              </div>
+              <div>
+                <div>
+                  <p>Camera</p>
+                  <p>5 days left</p>
+                  <p>Highest bid: 50</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section></section>
     </main>
     <footer class="bg-custom-black px-4 py-24">
       <div class="max-w-[200px] mx-auto">

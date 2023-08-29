@@ -16,6 +16,7 @@ export function registerFormListener() {
       try {
         await register(profile);
         errorMessageElement.innerHTML = "";
+        form.reset();
         errorMessageElement.classList.add("hidden");
         const successMessage = `<p class="font-bold mb-8">Success! You're registered and can now log in.</p>
         <a href="/login/" class="btn">Login</a>`;

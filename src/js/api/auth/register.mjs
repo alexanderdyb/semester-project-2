@@ -1,5 +1,5 @@
 import { API_AUCTION_URL } from "../constants.mjs";
-const action = "/auth/registe";
+const action = "/auth/register";
 const method = "post";
 
 export async function register(profile) {
