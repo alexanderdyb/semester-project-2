@@ -1,5 +1,5 @@
 import { API_AUCTION_URL } from "../constants.mjs";
-const action = "/auth/register";
+const action = "/auth/registe";
 const method = "post";
 
 export async function register(profile) {
@@ -17,5 +17,11 @@ export async function register(profile) {
     return await response.json();
   }
 
-  throw new Error(`Registration failed with status: ${response.status}}`);
+  const errorData = await response.json();
+  const errorMessage = errorData.errors[0].message;
+  const statusCode = errorData.statusCode;
+
+  throw new Error(
+    `Registration failed with status: ${statusCode}. Message: ${errorMessage}. Please try again later.`
+  );
 }

@@ -18,5 +18,11 @@ export async function login(profile) {
     return await response.json();
   }
 
-  throw new Error(`Login failed with status: ${response.status}}`);
+  const errorData = await response.json();
+  const errorMessage = errorData.errors[0].message;
+  const statusCode = errorData.statusCode;
+
+  throw new Error(
+    `Login failed with status: ${statusCode}. Message: ${errorMessage}.`
+  );
 }

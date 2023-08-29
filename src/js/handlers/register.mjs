@@ -1,10 +1,11 @@
-import { register } from "../api/auth/register.mjs";
-import { displayError } from "./error.mjs";
+import { register } from "../api/index.mjs";
+import { displayError } from "./userFeedback/error.mjs";
+import { displaySuccess } from "./userFeedback/success.mjs";
 
 export function registerFormListener() {
   const form = document.querySelector("#registerForm");
   const errorMessageElement = document.querySelector(".errorMessage");
-  const successMessage = document.querySelector(".successMessage");
+  const successMessageContainer = document.querySelector(".successMessage");
 
   if (form) {
     form.addEventListener("submit", async (event) => {
@@ -16,15 +17,16 @@ export function registerFormListener() {
         await register(profile);
         errorMessageElement.innerHTML = "";
         errorMessageElement.classList.add("hidden");
-        successMessage.innerHTML = `<p class="font-bold mb-8">Success! You're registered and can now log in.</p>
+        const successMessage = `<p class="font-bold mb-8">Success! You're registered and can now log in.</p>
         <a href="/login/" class="btn">Login</a>`;
+        displaySuccess(successMessageContainer, successMessage);
       } catch (error) {
-        const customRegisterError =
-          "An unexpected error occurred. Please try again later.";
+        successMessageContainer.classList.add("hidden");
+        const customRegisterError = error;
         displayError(error, errorMessageElement, customRegisterError);
         errorMessageElement.classList.remove("hidden");
 
-        console.error("Registration error:", error);
+        console.log("Registration error:", error);
       }
     });
   }
