@@ -25,8 +25,8 @@ export async function latestListings() {
               <div class="bg-white p-5">
                 <div class="mb-5">
                   <h3>${title}</h3>
+                  <p>Posted ${createdDate}</p>
                   <p>${bids} bids</p>
-                  <p>${createdDate}</p>
                 </div>
                 <div class="border text-center py-2">
                   <a href="#" class="inline-block w-full h-100">Details</a>
