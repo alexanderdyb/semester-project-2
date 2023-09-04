@@ -25,3 +25,28 @@ h3 {
 .cta {
   @apply border-none bg-custom-black px-8 py-3 rounded-2xl text-white hover:bg-black;
 }
+
+.errorMessage {
+  @apply max-w-lg mx-auto p-5 mt-5 text-red-600 border rounded-2xl text-center;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
