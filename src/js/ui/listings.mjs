@@ -6,7 +6,6 @@ const listingsContainer = document.querySelector("#listingsContainer");
 export async function latestListings() {
   try {
     const data = await getListings();
-    console.log(data);
 
     listingsContainer.innerHTML = "";
     data.sort((a, b) => new Date(b.created) - new Date(a.created));
@@ -16,6 +15,7 @@ export async function latestListings() {
       const image = element.media[0];
       const bids = element._count.bids;
       const createdDate = formatDate(element.created);
+      const id = element.id;
 
       listingsContainer.innerHTML += `
             <div>
@@ -29,7 +29,7 @@ export async function latestListings() {
                   <p>${bids} bids</p>
                 </div>
                 <div class="border text-center py-2">
-                  <a href="#" class="inline-block w-full h-100">Details</a>
+                  <a href="/listing/?id=${id}" class="inline-block w-full h-100">Details</a>
                 </div>
               </div>
             </div>`;

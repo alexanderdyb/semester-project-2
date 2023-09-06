@@ -18,6 +18,7 @@ navbarHandler();
 const path = location.pathname;
 
 switch (path) {
+  case "/index.html":
   case "/":
     ui.latestListings();
     break;
@@ -26,5 +27,8 @@ switch (path) {
     break;
   case "/login/":
     listeners.loginFormListener();
+    break;
+  case "/listing/":
+    ui.listingDetails();
     break;
 }
