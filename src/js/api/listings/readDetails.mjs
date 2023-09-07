@@ -3,7 +3,7 @@ import { API_AUCTION_URL } from "../constants.mjs";
 export async function getListingDetails(id) {
   const METHOD = "get";
   const ACTION = `/listings/${id}`;
-  const getListingsUrl = `${API_AUCTION_URL}${ACTION}`;
+  const getListingsUrl = `${API_AUCTION_URL}${ACTION}?_bids=true`;
 
   const response = await fetch(getListingsUrl, {
     method: METHOD,

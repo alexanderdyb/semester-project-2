@@ -35,7 +35,15 @@
               id="menu"
             >
               <li class="mb-5 md:mb-0">
-                <a href="/login" class="btn"> Login </a>
+                <a href="/login" data-visible="loggedIn">Profile</a>
+              </li>
+              <li class="mb-5 md:mb-0">
+                <a href="/login" class="btn" data-visible="loggedOut">Login</a>
+              </li>
+              <li>
+                <button type="button" data-visible="loggedIn" id="logoutBtn">
+                  Logout
+                </button>
               </li>
             </ul>
           </div>
@@ -57,9 +65,9 @@
     <main>
       <section class="px-4 py-12 sm:py-24 bg-custom-light">
         <div
-          class="grid grid-cols-1 gap-6 max-w-5xl mx-auto sm:grid-cols-2 items-center "
+          class="grid grid-cols-1 gap-6 max-w-5xl mx-auto sm:grid-cols-2 items-center"
           id="listingsDetailsContainer"
-        >
+        ></div>
         <div class="errorMessage hidden"></div>
       </section>
       <section class="px-4 py-12 sm:py-24">
@@ -69,9 +77,10 @@
           >
             All bids
           </h2>
-          <div id="bidLoggedOut" data-visible="loggedOut"><p><a href="/login" class="underline">Login</a> to bid</p></div>
-          <div id="bidLoggedIn" data-visible="loggedIn">Logged in</div>
-          <div id="bidList">list of bids</div>
+          <div class="text-center" id="bidLoggedOut" data-visible="loggedOut">
+            <p><a href="/login" class="underline">Login</a> to bid</p>
+          </div>
+          <div id="bidLoggedIn" data-visible="loggedIn"></div>
         </div>
       </section>
     </main>

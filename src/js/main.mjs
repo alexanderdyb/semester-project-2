@@ -1,6 +1,6 @@
 import { navbarHandler } from "./components/navbar.mjs";
 import * as listeners from "./handlers/index.mjs";
-import * as ui from "./ui/index.mjs";
+import * as templates from "./ui/templates/index.mjs";
 import { toggleUI } from "./ui/authUI.mjs";
 import { logoutEvent } from "./handlers/index.mjs";
 
@@ -20,7 +20,7 @@ const path = location.pathname;
 switch (path) {
   case "/index.html":
   case "/":
-    ui.latestListings();
+    templates.latestListings();
     break;
   case "/register/":
     listeners.registerFormListener();
@@ -29,6 +29,7 @@ switch (path) {
     listeners.loginFormListener();
     break;
   case "/listing/":
-    ui.listingDetails();
+    templates.listingDetails();
+
     break;
 }

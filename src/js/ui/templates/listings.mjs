@@ -1,6 +1,6 @@
-import { getListings } from "../api/listings/read.mjs";
-import { displayError } from "../handlers/userFeedback/error.mjs";
-import { formatDate } from "../handlers/conversion/date.mjs";
+import { getListings } from "../../api/listings/read.mjs";
+import { displayError } from "../../handlers/userFeedback/error.mjs";
+import { formatDate } from "../../handlers/conversion/date.mjs";
 const listingsContainer = document.querySelector("#listingsContainer");
 
 export async function latestListings() {

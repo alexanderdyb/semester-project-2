@@ -1,6 +1,6 @@
-import { getListingDetails } from "../api/listings/readDetails.mjs";
-import { displayError } from "../handlers/userFeedback/error.mjs";
-import { formatDate } from "../handlers/conversion/date.mjs";
+import { getListingDetails } from "../../api/listings/readDetails.mjs";
+import { displayError } from "../../handlers/userFeedback/error.mjs";
+import { formatDate } from "../../handlers/conversion/date.mjs";
 const listingsDetailsContainer = document.querySelector(
   "#listingsDetailsContainer"
 );
@@ -18,6 +18,10 @@ export async function listingDetails() {
     const image = data.media[0];
     const createdDate = formatDate(data.created);
     const endDate = formatDate(data.endsAt);
+    const tags = data.tags || [];
+    const tagsHTML = tags
+      .map((tag) => `<span class="tag">${tag}</span>`)
+      .join(", ");
 
     listingsDetailsContainer.innerHTML = "";
 
@@ -28,11 +32,36 @@ export async function listingDetails() {
   <div class="sm:mx-auto">
     <h1>${title}</h1>
     <p>Posted ${createdDate}</p>
-    <p class="pb-4">Ends at ${endDate}</p>
+    <p>Ends at ${endDate}</p>
+    ${tagsHTML.length ? `<p class="pb-4">Tags: ${tagsHTML}</p>` : ""}
     <p class="pb-4">About the listing: ${description}</p>
   </div>
 </div>
 `;
+
+    // All bids
+
+    const bids = data.bids || [];
+    let bidsHTML = "";
+
+    if (bids.length > 0) {
+      bidsHTML = '<ul class="bids-list">';
+      bids.forEach((bid) => {
+        bidsHTML += `<li>Bidder: ${bid.bidderName}, Amount: ${
+          bid.amount
+        }, Date: ${formatDate(bid.created)}</li>`;
+      });
+      bidsHTML += "</ul>";
+    } else {
+      bidsHTML = "<p>No bids available for this listing.</p>";
+    }
+
+    const bidLoggedInContainer = document.querySelector("#bidLoggedIn");
+    if (bidLoggedInContainer) {
+      bidLoggedInContainer.innerHTML = bidsHTML;
+    } else {
+      console.error("#bidLoggedIn element not found");
+    }
   } catch (error) {
     listingsDetailsContainer.innerHTML = "";
     const errorMessageElement = document.querySelector(".errorMessage");
