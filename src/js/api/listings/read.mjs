@@ -3,8 +3,8 @@ import { API_AUCTION_URL } from "../constants.mjs";
 const ACTION = "/listings";
 const METHOD = "get";
 
-export async function getListings(limit = 30, offset = 0) {
-  const getListingsUrl = `${API_AUCTION_URL}${ACTION}?limit=${limit}&offset=${offset}`;
+export async function getListings() {
+  const getListingsUrl = `${API_AUCTION_URL}${ACTION}`;
 
   const response = await fetch(getListingsUrl, {
     method: METHOD,

@@ -6,6 +6,7 @@ const listingsContainer = document.querySelector("#listingsContainer");
 export async function latestListings() {
   try {
     const data = await getListings();
+    console.log(data);
 
     listingsContainer.innerHTML = "";
     data.sort((a, b) => new Date(b.created) - new Date(a.created));
