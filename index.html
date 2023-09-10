@@ -82,13 +82,27 @@
       </section>
       <section class="px-4 py-24 bg-custom-light">
         <h2 class="text-center">Recent listings</h2>
-        <div class="pb-10 mt-6">
-          <input
-            type="search"
-            class="m-0 block max-w-200px mx-auto min-w-0 flex-auto rounded-2xl border border-solid border-[#707070] bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:text-neutral-700 focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
-            id="exampleSearch"
-            placeholder="Type query"
-          />
+        <div class="flex-col">
+          <div class="pb-5 mt-6">
+            <label for="searchBar" class="block text-center pb-1"
+              >Search listings</label
+            >
+            <input
+              type="search"
+              class="m-0 block max-w-200px mx-auto min-w-0 flex-auto rounded-2xl border border-solid border-[#161616] bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:text-neutral-700 focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+              id="searchBar"
+              placeholder="Type query"
+            />
+          </div>
+          <div class="text-center pb-10">
+            <select
+              id="sortOrder"
+              class="px-16 py-1 border border-solid border-[#161616] rounded-2xl bg-transparent"
+            >
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
         </div>
         <div
           id="listingsContainer"
