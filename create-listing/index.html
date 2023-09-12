@@ -65,38 +65,61 @@
     <main>
       <section class="px-4 py-24">
         <div class="max-w-lg mx-auto rounded-2xl bg-custom-beige p-5">
-          <form id="registerForm" method="post">
+          <form id="listingForm" method="post">
             <h2 class="text-center mb-5">Create a listing</h2>
             <div class="flex flex-col mb-3">
-              <label for="title">Title</label>
+              <label for="title">Title (required)</label>
               <input
-                class="border-[1px] border-gray-400 p-1"
+                class="border-[1px] border-gray-400 p-1 mb-2"
                 type="text"
                 name="title"
+                id="title"
                 required
                 title="Enter a title"
               />
-              <label for="description">Description</label>
+              <label for="description">Description (required)</label>
               <input
-                class="border-[1px] border-gray-400 p-1"
+                class="border-[1px] border-gray-400 p-1 mb-2"
+                id="description"
                 type="text"
                 name="description"
               />
-              <label for="password" class="">Password</label>
+              <label>Media URLs (optional)</label>
+              <div class="multi-inputs flex flex-col mb-3 gap-2" id="media">
+                <input
+                  type="url"
+                  name="media1"
+                  placeholder="Media URL 1"
+                  class="border-[1px] border-gray-400 p-1"
+                />
+                <input
+                  type="url"
+                  name="media2"
+                  placeholder="Media URL 2"
+                  class="border-[1px] border-gray-400 p-1"
+                />
+                <input
+                  type="url"
+                  name="media3"
+                  placeholder="Media URL 3"
+                  class="border-[1px] border-gray-400 p-1"
+                />
+              </div>
+              <label>Tags (optional)</label>
               <input
-                type="password"
-                name="password"
-                placeholder="••••••••"
-                class="border-[1px] border-gray-400 p-1"
-                required
-                minlength="8"
+                type="text"
+                id="tags"
+                name="tags"
+                placeholder="tag1, tag2, tag3"
+                class="border-[1px] border-gray-400 p-1 mb-2"
               />
-              <label for="avatar">Avatar</label>
+              <label for="endsAt">Ends At (required)</label>
               <input
+                type="datetime-local"
+                id="endsAt"
+                name="endsAt"
+                required
                 class="border-[1px] border-gray-400 p-1"
-                type="url"
-                name="avatar"
-                placeholder="Image url"
               />
             </div>
             <button

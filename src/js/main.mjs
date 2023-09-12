@@ -32,4 +32,7 @@ switch (path) {
     templates.listingDetails();
     listeners.bid();
     break;
+  case "/create-listing/":
+    listeners.createListing();
+    break;
 }
