@@ -27,6 +27,7 @@ export function createListing() {
       try {
         await postListing(title, description, tags, media, endsAt);
         event.target.reset();
+        window.location.href = "/";
       } catch (error) {
         console.log("error");
       }
