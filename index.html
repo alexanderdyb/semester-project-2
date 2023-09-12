@@ -68,15 +68,33 @@
           <img
             src="./src/assets/images/gold-smoke.jpg"
             class="object-cover w-full h-full"
+            data-visible="loggedOut"
+          />
+          <img
+            src="./src/assets/images/black-diamonds.jpg"
+            class="object-cover w-full h-full"
+            data-visible="loggedIn"
           />
         </div>
       </section>
       <section class="bg-custom-beige px-4 py-24" data-visible="loggedOut">
         <div class="text-center">
-          <h1 class="text-3xl md:text-5xl">From unique to Antique</h1>
-          <h2 class="text-1xl md:text-2xl mt-3">AUCTION HOUSE</h2>
+          <h1>From unique to Antique</h1>
+          <h2>AUCTION HOUSE</h2>
           <div class="mt-8">
             <a href="/register/" class="cta">Register</a>
+          </div>
+        </div>
+      </section>
+      <section class="bg-custom-beige px-4 py-24" data-visible="loggedIn">
+        <div class="text-center">
+          <h1>List Your Treasure with Us</h1>
+          <p class="mt-2">
+            Dive into the excitement of auctions - start your listing journey
+            today!
+          </p>
+          <div class="mt-8">
+            <a href="/create-listing/" class="cta">Create a listing</a>
           </div>
         </div>
       </section>

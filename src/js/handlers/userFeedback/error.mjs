@@ -6,5 +6,5 @@ export function displayError(error, errorMessageElement, customMessage = null) {
     error.message ||
     "An unexpected error occurred. Please try again later.";
 
-  errorMessageElement.innerHTML = messageToDisplay;
+  errorMessageElement.innerHTML = `<div class="text-[#ED4337]"><p>${messageToDisplay}</p></div`;
 }

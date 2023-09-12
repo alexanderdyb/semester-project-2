@@ -30,6 +30,6 @@ switch (path) {
     break;
   case "/listing/":
     templates.listingDetails();
-
+    listeners.bid();
     break;
 }

@@ -40,33 +40,31 @@ export async function listingDetails() {
 `;
 
     // All bids
-
-    const bids = data.bids || [];
-    let bidsHTML = "";
-
-    if (bids.length > 0) {
-      bidsHTML = '<ul class="bids-list">';
-      bids.forEach((bid) => {
-        bidsHTML += `<li>Bidder: ${bid.bidderName}, Amount: ${
-          bid.amount
-        }, Date: ${formatDate(bid.created)}</li>`;
-      });
-      bidsHTML += "</ul>";
-    } else {
-      bidsHTML = "<p>No bids available for this listing.</p>";
-    }
-
-    const bidLoggedInContainer = document.querySelector("#bidLoggedIn");
-    if (bidLoggedInContainer) {
-      bidLoggedInContainer.innerHTML = bidsHTML;
-    } else {
-      console.error("#bidLoggedIn element not found");
-    }
+    allBids(data);
   } catch (error) {
     listingsDetailsContainer.innerHTML = "";
     const errorMessageElement = document.querySelector(".errorMessage");
     const customRegisterError = error;
     displayError(error, errorMessageElement, customRegisterError);
     errorMessageElement.classList.remove("hidden");
+  }
+}
+
+function allBids(data) {
+  const bidLoggedInContainer = document.querySelector("#bidLoggedIn");
+  const bids = data.bids;
+  bidLoggedInContainer.innerHTML = "";
+
+  if (bids.length > 0) {
+    bids.sort((a, b) => b.amount - a.amount); // This will sort the bids in descending order of the bid amount
+
+    bids.forEach((bid) => {
+      const bidderName = bid.bidderName;
+      const bidCreated = formatDate(bid.created);
+      const bidAmount = bid.amount;
+      bidLoggedInContainer.innerHTML += `<div class="flex-col"><div class="mb-5 mt-5 rounded-2xl border py-6 px-2"><p class="mb-2">${bidCreated} by <span class="font-semibold">${bidderName}</span></p><p><span class="font-bold">Bid amount: ${bidAmount}</span></p></div></div>`;
+    });
+  } else {
+    bidLoggedInContainer.innerHTML = `<p class="text-center">No bids for this listing.</p>`;
   }
 }
