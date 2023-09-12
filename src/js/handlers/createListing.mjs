@@ -26,6 +26,7 @@ export function createListing() {
 
       try {
         await postListing(title, description, tags, media, endsAt);
+        event.target.reset();
       } catch (error) {
         console.log("error");
       }
