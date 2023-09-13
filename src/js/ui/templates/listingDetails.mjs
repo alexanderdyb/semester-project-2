@@ -13,9 +13,9 @@ export async function listingDetails() {
   try {
     const data = await getListingDetails(id);
     console.log(data);
+
     const title = data.title;
     const description = data.description;
-    const image = data.media[0];
     const createdDate = formatDate(data.created);
     const endDate = formatDate(data.endsAt);
     const tags = data.tags || [];
@@ -23,20 +23,67 @@ export async function listingDetails() {
       .map((tag) => `<span class="tag">${tag}</span>`)
       .join(", ");
 
+    const images = data.media;
+    const numberOfImages = images.length;
+    console.log(numberOfImages);
+    let currentImageIndex = 0;
+    let imageNumber = 0;
+
     listingsDetailsContainer.innerHTML = "";
 
-    listingsDetailsContainer.innerHTML += `
-    <div class="h-80">
-    <img src="${image}" alt="${title}" class="object-cover w-full h-full" />
-  </div>
-  <div class="sm:mx-auto">
-    <h1>${title}</h1>
-    <p>Posted ${createdDate}</p>
-    <p>Ends at ${endDate}</p>
-    ${tagsHTML.length ? `<p class="pb-4">Tags: ${tagsHTML}</p>` : ""}
-    <p class="pb-4">About the listing: ${description}</p>
-  </div>
-`;
+    function updateImage() {
+      const imageElement = document.querySelector("#carouselImage");
+      if (imageElement) {
+        imageElement.src = images[currentImageIndex];
+      }
+      if (imageNumberDisplay) {
+        imageNumberDisplay.textContent = `${
+          currentImageIndex + 1
+        } of ${numberOfImages}`;
+      }
+    }
+
+    function previousImage() {
+      if (currentImageIndex > 0) {
+        currentImageIndex -= 1;
+        updateImage();
+      }
+    }
+
+    function nextImage() {
+      if (currentImageIndex < images.length - 1) {
+        currentImageIndex += 1;
+        console.log(currentImageIndex);
+        updateImage();
+      }
+    }
+
+    listingsDetailsContainer.innerHTML = `
+      <div class="relative h-80">
+        <img src="${
+          images[0]
+        }" alt="${title}" class="object-cover w-full h-full" id="carouselImage" />
+        <div class="flex justify-between">
+          <button id="prevButton" class="px-4 py-2 bg-custom-gold text-[#161616]">Prev</button>
+          <p id="imageNumberDisplay">${
+            currentImageIndex + 1
+          } of ${numberOfImages}</p>
+          <button id="nextButton" class="px-4 py-2 bg-custom-gold text-[#161616]">Next</button>
+        </div>
+      </div>
+      <div class="sm:mx-auto">
+        <h1>${title}</h1>
+        <p>Posted ${createdDate}</p>
+        <p>Ends at ${endDate}</p>
+        ${tagsHTML.length ? `<p class="pb-4">Tags: ${tagsHTML}</p>` : ""}
+        <p class="pb-4">About the listing: ${description}</p>
+      </div>
+    `;
+
+    document
+      .getElementById("prevButton")
+      .addEventListener("click", previousImage);
+    document.getElementById("nextButton").addEventListener("click", nextImage);
 
     // All bids
     allBids(data);
@@ -55,7 +102,7 @@ function allBids(data) {
   bidLoggedInContainer.innerHTML = "";
 
   if (bids.length > 0) {
-    bids.sort((a, b) => b.amount - a.amount); // This will sort the bids in descending order of the bid amount
+    bids.sort((a, b) => b.amount - a.amount);
 
     bids.forEach((bid) => {
       const bidderName = bid.bidderName;
