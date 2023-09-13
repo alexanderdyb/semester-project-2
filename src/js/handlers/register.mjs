@@ -26,8 +26,8 @@ export function registerFormListener() {
         const customRegisterError = error;
         displayError(error, errorMessageElement, customRegisterError);
         errorMessageElement.classList.remove("hidden");
-
         console.log("Registration error:", error);
+        form.reset();
       }
     });
   }

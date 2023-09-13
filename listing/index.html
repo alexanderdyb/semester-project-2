@@ -34,16 +34,16 @@
               class="hidden pt-5 h-screen mt-20 text-center md:mt-0 md:h-0 md:flex md:gap-5"
               id="menu"
             >
-              <li class="mb-5 md:mb-0">
-                <a href="/login" data-visible="loggedIn">Profile</a>
+              <li class="mb-5 md:mb-0" data-visible="loggedIn">
+                <i class="fa-regular fa-user"></i>
+                <a href="/account">Account</a>
               </li>
               <li class="mb-5 md:mb-0">
                 <a href="/login" class="btn" data-visible="loggedOut">Login</a>
               </li>
-              <li>
-                <button type="button" data-visible="loggedIn" id="logoutBtn">
-                  Logout
-                </button>
+              <li data-visible="loggedIn">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <button type="button" id="logoutBtn">Logout</button>
               </li>
             </ul>
           </div>
@@ -67,7 +67,9 @@
         <div
           class="grid grid-cols-1 gap-6 max-w-5xl mx-auto sm:grid-cols-2 items-center"
           id="listingsDetailsContainer"
-        ></div>
+        >
+          <span class="loader"></span>
+        </div>
         <div class="errorMessage hidden"></div>
       </section>
       <section class="px-4 py-12 sm:py-24">
@@ -99,7 +101,9 @@
             <button id="bidButton" class="btn">Make a Bid</button>
             <div class="message mt-4"></div>
           </div>
-          <div id="bidLoggedIn" data-visible="loggedIn"></div>
+          <div id="bidLoggedIn" data-visible="loggedIn">
+            <span class="loader"></span>
+          </div>
         </div>
       </section>
     </main>

@@ -55,7 +55,7 @@ async function latestListingsFunction(query = "", sortOrder = "newest") {
       const id = element.id;
 
       listingsContainer.innerHTML += `
-        <div>
+        <div class="shadow-lg">
           <div class="h-80">
             <img src=${image} alt=${title} class="object-cover w-full h-full" />
           </div>
@@ -65,7 +65,7 @@ async function latestListingsFunction(query = "", sortOrder = "newest") {
               <p>Posted ${createdDate}</p>
               <p>${bids} bids</p>
             </div>
-            <div class="border text-center py-2">
+            <div class="border text-center py-2 border-[#E8CC8B]">
               <a href="/listing/?id=${id}" class="inline-block w-full h-100">Details</a>
             </div>
           </div>

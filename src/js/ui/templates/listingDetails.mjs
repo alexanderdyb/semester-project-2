@@ -36,7 +36,6 @@ export async function listingDetails() {
     ${tagsHTML.length ? `<p class="pb-4">Tags: ${tagsHTML}</p>` : ""}
     <p class="pb-4">About the listing: ${description}</p>
   </div>
-</div>
 `;
 
     // All bids

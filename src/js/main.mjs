@@ -35,4 +35,7 @@ switch (path) {
   case "/create-listing/":
     listeners.createListing();
     break;
+  case "/account/":
+    templates.getProfileData();
+    break;
 }

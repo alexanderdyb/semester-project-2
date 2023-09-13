@@ -1,9 +1,13 @@
 import { postListing } from "../api/listings/create.mjs";
+import { displayError } from "./userFeedback/error.mjs";
+import { displaySuccess } from "./userFeedback/success.mjs";
 
 export function createListing() {
   document
     .getElementById("listingForm")
     .addEventListener("submit", async function (event) {
+      const errorMessageElement = document.querySelector(".errorMessage");
+      const successMessageContainer = document.querySelector(".successMessage");
       event.preventDefault();
 
       let title = document.getElementById("title").value;
@@ -27,9 +31,16 @@ export function createListing() {
       try {
         await postListing(title, description, tags, media, endsAt);
         event.target.reset();
-        window.location.href = "/";
+        errorMessageElement.classList.add("hidden");
+        const successMessage = `<p class="font-bold mb-8">Success! You're created a listing.</p>
+        <a href="/" class="btn">Go to listings</a>`;
+        displaySuccess(successMessageContainer, successMessage);
       } catch (error) {
-        console.log("error");
+        successMessageContainer.classList.add("hidden");
+        const customRegisterError = error;
+        displayError(error, errorMessageElement, customRegisterError);
+        errorMessageElement.classList.remove("hidden");
+        form.reset();
       }
     });
 }

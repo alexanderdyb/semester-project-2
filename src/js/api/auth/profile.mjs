@@ -1,11 +1,13 @@
-import { headers } from "../headers.mjs";
 import { API_AUCTION_URL } from "../constants.mjs";
+import * as storage from "../../storage/index.mjs";
+import { headers } from "../headers.mjs";
 
-export async function postListing(title, description, tags, media, endsAt) {
+export async function getProfile() {
+  const profile = storage.load("profile");
+  const NAME = profile.name;
   try {
-    const response = await fetch(`${API_AUCTION_URL}/listings`, {
-      method: "post",
-      body: JSON.stringify({ title, description, tags, media, endsAt }),
+    const response = await fetch(`${API_AUCTION_URL}/profiles/${NAME}`, {
+      method: "get",
       headers: headers("application/json"),
     });
 
@@ -15,7 +17,7 @@ export async function postListing(title, description, tags, media, endsAt) {
 
     let errorData;
     let errorMessage =
-      "An error occurred while trying to create a listing. Please try again later.";
+      "An error occurred while trying to get data from profile. Please try again later.";
 
     try {
       errorData = await response.json();

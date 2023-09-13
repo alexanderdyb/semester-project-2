@@ -20,7 +20,6 @@ export function bid() {
       try {
         await createBid(id, amount);
         listingDetails();
-
         message.innerHTML = "";
         const successMessage = `<div class="text-[#5BC236]"><p>Bid created successfully!</p></div>`;
         displaySuccess(message, successMessage);
