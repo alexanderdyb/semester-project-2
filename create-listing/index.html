@@ -34,18 +34,16 @@
               class="hidden pt-5 h-screen mt-20 text-center md:mt-0 md:h-0 md:flex md:gap-5"
               id="menu"
             >
-              <li class="mb-5 md:mb-0">
+              <li class="mb-5 md:mb-0" data-visible="loggedIn">
                 <i class="fa-regular fa-user"></i>
-                <a href="/account" data-visible="loggedIn">Account</a>
+                <a href="/account">Account</a>
               </li>
-              <li class="mb-5 md:mb-0">
-                <a href="/login" class="btn" data-visible="loggedOut">Login</a>
+              <li class="mb-5 md:mb-0" data-visible="loggedOut">
+                <a href="/login" class="btn">Login</a>
               </li>
-              <li>
+              <li data-visible="loggedIn">
                 <i class="fa-solid fa-right-to-bracket"></i>
-                <button type="button" data-visible="loggedIn" id="logoutBtn">
-                  Logout
-                </button>
+                <button type="button" id="logoutBtn">Logout</button>
               </li>
             </ul>
           </div>
@@ -65,7 +63,13 @@
       </nav>
     </header>
     <main>
-      <section class="px-4 py-24">
+      <section data-visible="loggedOut" class="px-4 py-56">
+        <div class="text-center">
+          <p class="mb-6">You are not logged in.</p>
+          <a href="/login" class="btn">Login</a>
+        </div>
+      </section>
+      <section class="px-4 py-24" data-visible="loggedIn">
         <div class="max-w-lg mx-auto rounded-2xl bg-custom-beige p-5">
           <form id="listingForm" method="post">
             <h2 class="text-center mb-5">Create a listing</h2>
@@ -129,11 +133,6 @@
             >
               Create
             </button>
-            <p data-visible="loggedOut">
-              You have to
-              <a href="../login/" class="underline text-center">login</a> to
-              create a listing
-            </p>
           </form>
         </div>
         <div class="errorMessage hidden"></div>

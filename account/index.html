@@ -77,15 +77,33 @@
           <a href="/login" class="btn">Login</a>
         </div>
       </section>
-      <section data-visible="loggedIn" class="px-4 py-24">
+      <section data-visible="loggedIn" class="px-4 py-12 bg-custom-light">
         <div
           class="text-center border-solid border-b-2 border-[#E8CC8B] max-w-[800px] mx-auto"
         >
-          <h1 class="">Account</h1>
+          <h1>Account</h1>
         </div>
-        <div id="accountContainer" class="max-w-[800px] mx-auto py-12">
+        <div
+          id="accountContainer"
+          class="max-w-[800px] mx-auto py-12 grid grid-cols-1 gap-6 sm:grid-cols-2 items-center"
+        >
           <span class="loader"></span>
         </div>
+        <div class="errorMessage hidden"></div>
+      </section>
+      <section data-visible="loggedIn" class="px-4 py-12">
+        <div
+          class="text-center border-solid border-b-2 border-[#E8CC8B] max-w-[800px] mx-auto"
+        >
+          <h2>My listings</h2>
+        </div>
+        <div
+          id="myListingsContainer"
+          class="max-w-[800px] mx-auto py-12 grid grid-cols-1 gap-6 sm:grid-cols-2 items-center"
+        >
+          <span class="loader"></span>
+        </div>
+        <div class="errorMessageMyListings hidden"></div>
       </section>
     </main>
     <footer class="bg-custom-black px-4 py-24">

@@ -30,6 +30,10 @@ h3 {
   @apply max-w-lg mx-auto p-5 mt-5 text-red-600 border rounded-2xl text-center;
 }
 
+.errorMessageMyListings {
+  @apply max-w-lg mx-auto p-5 mt-5 text-red-600 border rounded-2xl text-center;
+}
+
 .loader {
   width: 48px;
   height: 48px;

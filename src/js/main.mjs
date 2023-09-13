@@ -37,5 +37,9 @@ switch (path) {
     break;
   case "/account/":
     templates.getProfileData();
+    templates.getMyListingsData();
+    break;
+  case "/update-avatar/":
+    listeners.updateAvatarImage();
     break;
 }
