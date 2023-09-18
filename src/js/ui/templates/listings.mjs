@@ -35,7 +35,6 @@ function setupSortOrderEventListener() {
 async function latestListingsFunction(query = "", sortOrder = "newest") {
   try {
     const data = await getListings();
-    console.log(data);
 
     listingsContainer.innerHTML = "";
 
@@ -48,8 +47,10 @@ async function latestListingsFunction(query = "", sortOrder = "newest") {
     const filteredData = searchListings(data, query);
 
     filteredData.forEach((element) => {
-      const title = element.title;
-      const image = element.media[0];
+      const title = element.title ? element.title : "No title";
+      const image = element.media[0]
+        ? element.media[0]
+        : "../../src/assets/images/no-image.png";
       const bids = element._count.bids;
       const createdDate = formatDate(element.created);
       const id = element.id;
@@ -61,7 +62,7 @@ async function latestListingsFunction(query = "", sortOrder = "newest") {
           </div>
           <div class="bg-white p-5">
             <div class="mb-5">
-              <h3>${title}</h3>
+              <h4>${title}</h4>
               <p>Posted ${createdDate}</p>
               <p>${bids} bids</p>
             </div>

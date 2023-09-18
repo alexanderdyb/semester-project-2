@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Create a listing at Auction House" />
-    <title>Create a listing</title>
+    <meta name="description" content="Update avatar at Auction House" />
+    <title>Update avatar | Auction House</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -70,11 +70,16 @@
         </div>
       </section>
       <section class="px-4 py-36" data-visible="loggedIn">
+        <h1 class="max-w-4xl mx-auto text-center mb-10">
+          Refresh Your Profile
+        </h1>
         <div class="max-w-lg mx-auto rounded-2xl bg-custom-beige p-5">
           <form id="listingForm" method="post">
             <h2 class="text-center mb-5">Update avatar</h2>
             <div class="flex flex-col mb-3">
-              <label for="avatar">Avatar url</label>
+              <label for="avatar"
+                >Avatar url<span class="text-red-700">*</span></label
+              >
               <input
                 class="border-[1px] border-gray-400 p-1 mb-2"
                 type="text"

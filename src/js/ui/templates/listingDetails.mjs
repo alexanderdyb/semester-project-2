@@ -12,9 +12,8 @@ const id = params.get("id");
 export async function listingDetails() {
   try {
     const data = await getListingDetails(id);
-    console.log(data);
 
-    const title = data.title;
+    const title = data.title ? data.title : "No title";
     const description = data.description;
     const createdDate = formatDate(data.created);
     const endDate = formatDate(data.endsAt);
@@ -23,11 +22,14 @@ export async function listingDetails() {
       .map((tag) => `<span class="tag">${tag}</span>`)
       .join(", ");
 
+    const highestBid =
+      data.bids.length > 0
+        ? Math.max(...data.bids.map((bid) => bid.amount))
+        : 0;
+
     const images = data.media;
     const numberOfImages = images.length;
-    console.log(numberOfImages);
     let currentImageIndex = 0;
-    let imageNumber = 0;
 
     listingsDetailsContainer.innerHTML = "";
 
@@ -53,7 +55,6 @@ export async function listingDetails() {
     function nextImage() {
       if (currentImageIndex < images.length - 1) {
         currentImageIndex += 1;
-        console.log(currentImageIndex);
         updateImage();
       }
     }
@@ -61,7 +62,7 @@ export async function listingDetails() {
     listingsDetailsContainer.innerHTML = `
       <div class="relative h-80">
         <img src="${
-          images[0]
+          images[0] ? images[0] : "../../src/assets/images/no-image.png"
         }" alt="${title}" class="object-cover w-full h-full" id="carouselImage" />
         <div class="flex justify-between">
           <button id="prevButton" class="px-4 py-2 bg-custom-gold text-[#161616]">Prev</button>
@@ -75,7 +76,8 @@ export async function listingDetails() {
         <h1>${title}</h1>
         <p>Posted ${createdDate}</p>
         <p>Ends at ${endDate}</p>
-        ${tagsHTML.length ? `<p class="pb-4">Tags: ${tagsHTML}</p>` : ""}
+        ${tagsHTML.length ? `<p>Tags: ${tagsHTML}</p>` : ""}
+        <p class="pb-2 font-semibold">Highest Bid: ${highestBid}</p>
         <p class="pb-4">About the listing: ${description}</p>
       </div>
     `;

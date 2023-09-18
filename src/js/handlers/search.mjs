@@ -1,5 +1,3 @@
-// handlers/searchHandler.mjs
-
 export function searchListings(data, query) {
   return data.filter((element) => {
     if (query) {

@@ -9,7 +9,6 @@ const myListingsContainer = document.querySelector("#myListingsContainer");
 export async function getProfileData() {
   try {
     const data = await getProfile();
-    console.log(data);
     const name = data.name;
     const credits = data.credits;
     const avatar = data.avatar;
@@ -40,13 +39,14 @@ export async function getProfileData() {
 export async function getMyListingsData() {
   try {
     const data = await getMyListings();
-    console.log(data);
 
     myListingsContainer.innerHTML = "";
 
     data.forEach((element) => {
-      const title = element.title;
-      const image = element.media[0];
+      const title = element.title ? element.title : "No title";
+      const image = element.media[0]
+        ? element.media[0]
+        : "../../src/assets/images/no-image.png";
       const bids = element._count.bids;
       const createdDate = formatDate(element.created);
       const id = element.id;
@@ -58,7 +58,7 @@ export async function getMyListingsData() {
             </div>
             <div class="bg-white p-5">
               <div class="mb-5">
-                <h3>${title}</h3>
+                <h4>${title}</h4>
                 <p>Posted ${createdDate}</p>
                 <p>${bids} bids</p>
               </div>
