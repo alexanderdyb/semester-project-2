@@ -76,9 +76,9 @@ export async function listingDetails() {
         <h1>${title}</h1>
         <p>Posted ${createdDate}</p>
         <p>Ends at ${endDate}</p>
-        ${tagsHTML.length ? `<p>Tags: ${tagsHTML}</p>` : ""}
         <p class="pb-2 font-semibold">Highest Bid: ${highestBid}</p>
-        <p class="pb-4">About the listing: ${description}</p>
+        <p>About the listing: ${description}</p>
+        ${tagsHTML.length ? `<p>Tags: ${tagsHTML}</p>` : ""}
       </div>
     `;
 
