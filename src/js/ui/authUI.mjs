@@ -9,10 +9,10 @@ export function toggleUI() {
   );
 
   if (token) {
-    loggedOutElements.forEach((el) => el.classList.add("hidden"));
-    loggedInElements.forEach((el) => el.classList.remove("hidden"));
+    loggedOutElements.forEach((el) => (el.style.display = "none"));
+    loggedInElements.forEach((el) => (el.style.display = "block"));
   } else {
-    loggedOutElements.forEach((el) => el.classList.remove("hidden"));
-    loggedInElements.forEach((el) => el.classList.add("hidden"));
+    loggedOutElements.forEach((el) => (el.style.display = "block"));
+    loggedInElements.forEach((el) => (el.style.display = "none"));
   }
 }

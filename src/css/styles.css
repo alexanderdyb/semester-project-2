@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+[data-visible="loggedOut"],
+[data-visible="loggedIn"] {
+  @apply hidden;
+}
+
 body {
   @apply text-[#161616] font-bodytext;
 }
