@@ -2,6 +2,13 @@ import { API_AUCTION_URL } from "../constants.mjs";
 import * as storage from "../../storage/index.mjs";
 import { headers } from "../headers.mjs";
 
+/**
+ * Updates the avatar of the logged-in user's profile.
+ *
+ * @param {File} avatar - The new avatar file to be updated.
+ * @returns {Promise<Object>} - The response JSON object containing the update status.
+ * @throws {Error} - Throws an error with the status code and a message if the update fails.
+ */
 export async function updateAvatar(avatar) {
   const profile = storage.load("profile");
   const NAME = profile.name;

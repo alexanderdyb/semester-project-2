@@ -1,6 +1,17 @@
 import { headers } from "../headers.mjs";
 import { API_AUCTION_URL } from "../constants.mjs";
 
+/**
+ * Posts a new listing to the auction site.
+ *
+ * @param {string} title - The title of the listing.
+ * @param {string} description - The description of the listing.
+ * @param {string[]} tags - An array of tags associated with the listing.
+ * @param {Object[]} media - An array of media objects associated with the listing.
+ * @param {string} endsAt - The ending time of the listing.
+ * @returns {Promise<Object>} - The response JSON object on successful listing creation.
+ * @throws {Error} - Throws an error with the status code and message if the listing creation fails.
+ */
 export async function postListing(title, description, tags, media, endsAt) {
   try {
     const response = await fetch(`${API_AUCTION_URL}/listings`, {

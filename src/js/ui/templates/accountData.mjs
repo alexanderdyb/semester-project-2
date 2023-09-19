@@ -6,6 +6,14 @@ import { formatDate } from "../../handlers/conversion/date.mjs";
 const accountContainer = document.querySelector("#accountContainer");
 const myListingsContainer = document.querySelector("#myListingsContainer");
 
+/**
+ * Asynchronously retrieves and displays the profile data of a user.
+ * In case of an error, it clears the accountContainer and displays an error message.
+ *
+ * @export
+ * @async
+ * @function
+ */
 export async function getProfileData() {
   try {
     const data = await getProfile();
@@ -36,6 +44,14 @@ export async function getProfileData() {
   }
 }
 
+/**
+ * Asynchronously retrieves and displays the listings of a user.
+ * In case of an error, it clears the myListingsContainer and displays an error message.
+ *
+ * @export
+ * @async
+ * @function
+ */
 export async function getMyListingsData() {
   try {
     const data = await getMyListings();

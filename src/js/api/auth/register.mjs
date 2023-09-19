@@ -1,7 +1,17 @@
 import { API_AUCTION_URL } from "../constants.mjs";
+
 const action = "/auth/register";
 const method = "post";
 
+/**
+ * Registers a new user.
+ *
+ * @param {Object} profile - The new user's profile data.
+ * @param {string} profile.username - The new user's username.
+ * @param {string} profile.password - The new user's password.
+ * @returns {Promise<Object>} - The response JSON object on successful registration.
+ * @throws {Error} - If the registration fails, throwing an error with the status code and message.
+ */
 export async function register(profile) {
   const registerURL = API_AUCTION_URL + action;
 

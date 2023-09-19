@@ -2,41 +2,58 @@ import { getListings } from "../../api/listings/read.mjs";
 import { displayError } from "../../handlers/userFeedback/error.mjs";
 import { formatDate } from "../../handlers/conversion/date.mjs";
 import { searchListings } from "../../handlers/search.mjs";
+import {
+  setupSearchEventListener,
+  setupSortOrderEventListener,
+  setupLoadMoreButton,
+} from "../../handlers/filter.mjs";
+
+let currentOffset = 0;
+const LIMIT = 10;
 
 const listingsContainer = document.querySelector("#listingsContainer");
 
 export function latestListings() {
-  setupSearchEventListener();
-  setupSortOrderEventListener();
-  latestListingsFunction();
+  setupSearchEventListener(latestListingsFunction);
+  setupSortOrderEventListener(latestListingsFunction);
+  setupLoadMoreButton(latestListingsFunction);
+  latestListingsFunction("", "newest", true);
 }
 
-function setupSearchEventListener() {
-  const searchBar = document.querySelector("#searchBar");
-  if (searchBar) {
-    searchBar.addEventListener("input", (event) => {
-      const query = event.target.value;
-      const sortOrder = document.querySelector("#sortOrder").value;
-      latestListingsFunction(query, sortOrder);
-    });
-  }
-}
-
-function setupSortOrderEventListener() {
-  const sortOrder = document.querySelector("#sortOrder");
-  if (sortOrder) {
-    sortOrder.addEventListener("change", (event) => {
-      const query = document.querySelector("#searchBar").value;
-      latestListingsFunction(query, event.target.value);
-    });
-  }
-}
-
-async function latestListingsFunction(query = "", sortOrder = "newest") {
-  try {
-    const data = await getListings();
-
+/**
+ * Retrieves and displays the latest listings with optional query and sorting options.
+ *
+ * @async
+ * @function
+ * @param {string} [query=""] - The search query.
+ * @param {string} [sortOrder="newest"] - The sorting order (e.g., "newest" or "oldest").
+ * @param {boolean} [resetOffset=false] - Whether to reset the offset.
+ */
+async function latestListingsFunction(
+  query = "",
+  sortOrder = "newest",
+  resetOffset = false
+) {
+  if (resetOffset) {
+    currentOffset = 0;
     listingsContainer.innerHTML = "";
+  }
+  try {
+    const data = await getListings(LIMIT, currentOffset);
+
+    const loadMoreButton = document.querySelector("#loadMoreButton");
+    if (data.length > 0) {
+      currentOffset += data.length;
+
+      if (loadMoreButton) {
+        loadMoreButton.style.display = data.length < LIMIT ? "none" : "block";
+      }
+    } else {
+      if (loadMoreButton) {
+        loadMoreButton.style.display = "none";
+      }
+      return;
+    }
 
     if (sortOrder === "newest") {
       data.sort((a, b) => new Date(b.created) - new Date(a.created));

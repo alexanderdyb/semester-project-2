@@ -9,6 +9,14 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
+/**
+ * Asynchronously retrieves and displays the details of a listing.
+ * In case of an error, it clears the listingsDetailsContainer and displays an error message.
+ *
+ * @async
+ * @function
+ * @export
+ */
 export async function listingDetails() {
   try {
     const data = await getListingDetails(id);
@@ -98,6 +106,12 @@ export async function listingDetails() {
   }
 }
 
+/**
+ * Displays all the bids for a listing.
+ *
+ * @function
+ * @param {object} data - The listing data containing bids.
+ */
 function allBids(data) {
   const bidLoggedInContainer = document.querySelector("#bidLoggedIn");
   const bids = data.bids;

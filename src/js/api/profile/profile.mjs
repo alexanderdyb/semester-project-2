@@ -2,6 +2,12 @@ import { API_AUCTION_URL } from "../constants.mjs";
 import * as storage from "../../storage/index.mjs";
 import { headers } from "../headers.mjs";
 
+/**
+ * Retrieves the profile data of the logged-in user.
+ *
+ * @returns {Promise<Object>} - The response JSON object containing the profile data.
+ * @throws {Error} - Throws an error with the status code and a message if the retrieval fails.
+ */
 export async function getProfile() {
   const profile = storage.load("profile");
   const NAME = profile.name;

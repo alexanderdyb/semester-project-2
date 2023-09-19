@@ -3,6 +3,12 @@ import { listingDetails } from "../ui/templates/listingDetails.mjs";
 import { displayError } from "./userFeedback/error.mjs";
 import { displaySuccess } from "./userFeedback/success.mjs";
 
+/**
+ * Handles the bid functionality in the application.
+ * It retrieves the listing ID from the URL and sets up an event listener on the bid button.
+ * When the bid button is clicked, it validates the bid amount and either sends a bid request to the API or displays an appropriate error message.
+ *
+ */
 export function bid() {
   const queryString = document.location.search;
   const params = new URLSearchParams(queryString);

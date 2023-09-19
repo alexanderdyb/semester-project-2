@@ -1,6 +1,14 @@
 import { headers } from "../headers.mjs";
 import { API_AUCTION_URL } from "../constants.mjs";
 
+/**
+ * Creates a bid on a listing.
+ *
+ * @param {string} id - The ID of the listing.
+ * @param {number} amount - The amount of the bid.
+ * @returns {Promise<Object>} - The response JSON object if the bid is successfully created.
+ * @throws {Error} - Throws an error with the status code and message if the bid creation fails.
+ */
 export async function createBid(id, amount) {
   try {
     const response = await fetch(`${API_AUCTION_URL}/listings/${id}/bids`, {
