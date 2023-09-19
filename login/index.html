@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Login for Auction House" />
+    <title>Login | Auction House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&family=Scope+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b23335820a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../dist/styles.css" />
+    <script src="../src/js/main.mjs" defer type="module"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="bg-custom-light" id="navbar">
+        <div class="flex justify-between max-w-7xl mx-auto px-4">
+          <a href="/">
+            <img
+              src="../src/assets/images/logo-black-nav.png"
+              alt="logo"
+              id="logo"
+            />
+          </a>
+          <div>
+            <ul
+              class="hidden pt-5 h-screen mt-20 text-center md:mt-0 md:h-0 md:flex md:gap-5"
+              id="menu"
+            >
+              <li class="mb-5 md:mb-0">
+                <a href="/login" class="btn"> Login </a>
+              </li>
+            </ul>
+          </div>
+          <div class="md:hidden pt-4" id="hamburger">
+            <i
+              class="fa-solid fa-bars fa-2xl"
+              style="color: text-custom-black"
+            ></i>
+          </div>
+          <div class="hidden md:hidden pt-4" id="close">
+            <i
+              class="fa-solid fa-xmark fa-2xl"
+              style="color: text-custom-black"
+            ></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="px-4 py-28">
+        <h1 class="max-w-4xl mx-auto text-center mb-10">
+          Access Your Auction Universe
+        </h1>
+        <div class="max-w-lg mx-auto rounded-2xl bg-custom-beige p-5">
+          <form id="loginForm">
+            <h2 class="text-center mb-5">Login</h2>
+            <div class="flex flex-col mb-3">
+              <label for="email"
+                >E-mail<span class="text-red-700">*</span></label
+              >
+              <input
+                class="border-[1px] border-gray-400 p-1"
+                type="email"
+                name="email"
+                required
+                pattern="^[\w\-.]+@(stud.)?noroff.no$"
+                title="The email value must be a valid stud.noroff.no or noroff.no email address."
+              />
+              <label for="password" class=""
+                >Password<span class="text-red-700">*</span></label
+              >
+              <input
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                class="border-[1px] border-gray-400 p-1"
+                required
+                minlength="8"
+              />
+            </div>
+            <button
+              class="border-2 w-full bg-custom-black text-white py-2 mb-3 border-none"
+            >
+              Login
+            </button>
+            <a href="../register" class="underline text-center">Register</a>
+          </form>
+        </div>
+        <div
+          id="loginErrorMessage"
+          class="errorMessage max-w-lg mx-auto p-5 mt-5 text-red-600 border rounded-2xl text-center hidden"
+        ></div>
+      </section>
+    </main>
+    <footer class="bg-custom-black px-4 py-24">
+      <div class="max-w-[200px] mx-auto">
+        <img
+          src="../src/assets/images/logo-white.png"
+          alt="logo"
+          class="object-cover"
+        />
+      </div>
+      <div class="text-center text-white">
+        <p>hi@auctionhouse.com</p>
+        <p>&copy; All rights reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>

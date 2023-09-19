@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Create a listing at Auction House" />
+    <title>Create a listing | Auction House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&family=Scope+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b23335820a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../dist/styles.css" />
+    <script src="../src/js/main.mjs" defer type="module"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="bg-custom-light" id="navbar">
+        <div class="flex justify-between max-w-7xl mx-auto px-4">
+          <a href="/">
+            <img
+              src="../src/assets/images/logo-black-nav.png"
+              alt="logo"
+              id="logo"
+            />
+          </a>
+          <div>
+            <ul
+              class="hidden pt-5 h-screen mt-20 text-center md:mt-0 md:h-0 md:flex md:gap-5"
+              id="menu"
+            >
+              <li class="mb-5 md:mb-0" data-visible="loggedIn">
+                <i class="fa-regular fa-user"></i>
+                <a href="/account">Account</a>
+              </li>
+              <li class="mb-5 md:mb-0" data-visible="loggedOut">
+                <a href="/login" class="btn">Login</a>
+              </li>
+              <li data-visible="loggedIn">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <button type="button" id="logoutBtn">Logout</button>
+              </li>
+            </ul>
+          </div>
+          <div class="md:hidden pt-4" id="hamburger">
+            <i
+              class="fa-solid fa-bars fa-2xl"
+              style="color: text-custom-black"
+            ></i>
+          </div>
+          <div class="hidden md:hidden pt-4" id="close">
+            <i
+              class="fa-solid fa-xmark fa-2xl"
+              style="color: text-custom-black"
+            ></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section data-visible="loggedOut" class="px-4 py-56">
+        <div class="text-center">
+          <p class="mb-6">You are not logged in.</p>
+          <a href="/login" class="btn">Login</a>
+        </div>
+      </section>
+      <section class="px-4 py-24" data-visible="loggedIn">
+        <h1 class="max-w-4xl mx-auto text-center mb-10">Get Started</h1>
+        <div class="max-w-lg mx-auto rounded-2xl bg-custom-beige p-5">
+          <form id="listingForm" method="post">
+            <h2 class="text-center mb-5">Create a Listing</h2>
+            <div class="flex flex-col mb-3">
+              <label for="title"
+                >Title<span class="text-red-700">*</span></label
+              >
+              <input
+                class="border-[1px] border-gray-400 p-1 mb-2"
+                type="text"
+                name="title"
+                id="title"
+                required
+                title="Enter a title"
+              />
+              <label for="description">Description</label>
+              <input
+                class="border-[1px] border-gray-400 p-1 mb-2"
+                id="description"
+                type="text"
+                name="description"
+              />
+              <label>Media URLs</label>
+              <div class="multi-inputs flex flex-col mb-3 gap-2" id="media">
+                <input
+                  type="url"
+                  name="media1"
+                  placeholder="Media URL 1"
+                  class="border-[1px] border-gray-400 p-1"
+                />
+                <input
+                  type="url"
+                  name="media2"
+                  placeholder="Media URL 2"
+                  class="border-[1px] border-gray-400 p-1"
+                />
+                <input
+                  type="url"
+                  name="media3"
+                  placeholder="Media URL 3"
+                  class="border-[1px] border-gray-400 p-1"
+                />
+              </div>
+              <label>Tags</label>
+              <input
+                type="text"
+                id="tags"
+                name="tags"
+                placeholder="tag1, tag2, tag3"
+                class="border-[1px] border-gray-400 p-1 mb-2"
+              />
+              <label for="endsAt"
+                >Ends At<span class="text-red-700">*</span></label
+              >
+              <input
+                type="datetime-local"
+                id="endsAt"
+                name="endsAt"
+                required
+                class="border-[1px] border-gray-400 p-1"
+              />
+            </div>
+            <button
+              class="border-2 w-full bg-custom-black text-white py-2 mb-3 border-none"
+            >
+              Create
+            </button>
+          </form>
+        </div>
+        <div class="errorMessage hidden"></div>
+        <div class="successMessage mt-5 max-w-lg mx-auto"></div>
+      </section>
+    </main>
+    <footer class="bg-custom-black px-4 py-24">
+      <div class="max-w-[200px] mx-auto">
+        <img
+          src="../src/assets/images/logo-white.png"
+          alt="logo"
+          class="object-cover"
+        />
+      </div>
+      <div class="text-center text-white">
+        <p>hi@auctionhouse.com</p>
+        <p>&copy; All rights reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>

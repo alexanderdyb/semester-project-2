@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Auction House - From unique to Antique" />
+    <title>Auction House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&family=Scope+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b23335820a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="dist/styles.css" />
+    <script src="./src/js/main.mjs" defer type="module"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="bg-custom-light" id="navbar">
+        <div class="flex justify-between max-w-7xl mx-auto px-4">
+          <a href="./">
+            <img
+              src="./src/assets/images/logo-black-nav.png"
+              alt="logo"
+              id="logo"
+            />
+          </a>
+          <div>
+            <ul
+              class="hidden pt-5 h-screen mt-20 text-center md:mt-0 md:h-0 md:flex md:gap-5"
+              id="menu"
+            >
+              <li class="mb-5 md:mb-0" data-visible="loggedIn">
+                <i class="fa-regular fa-user"></i>
+                <a href="/account">Account</a>
+              </li>
+              <li class="mb-5 md:mb-0">
+                <a href="/login" class="btn" data-visible="loggedOut">Login</a>
+              </li>
+              <li data-visible="loggedIn">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <button type="button" id="logoutBtn">Logout</button>
+              </li>
+            </ul>
+          </div>
+          <div class="md:hidden pt-4" id="hamburger">
+            <i
+              class="fa-solid fa-bars fa-2xl"
+              style="color: text-custom-black"
+            ></i>
+          </div>
+          <div class="hidden md:hidden pt-4" id="close">
+            <i
+              class="fa-solid fa-xmark fa-2xl"
+              style="color: text-custom-black"
+            ></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="h-96 w-full">
+          <img
+            src="./src/assets/images/gold-smoke.jpg"
+            class="object-cover w-full h-full"
+            data-visible="loggedOut"
+            alt="image of smoke"
+          />
+          <img
+            src="./src/assets/images/black-diamonds.jpg"
+            class="object-cover w-full h-full"
+            data-visible="loggedIn"
+            alt="image of black diamonds"
+          />
+        </div>
+      </section>
+      <section class="bg-custom-beige px-4 py-24" data-visible="loggedOut">
+        <div class="text-center">
+          <h1>From Unique to Antique</h1>
+          <h2>AUCTION HOUSE</h2>
+          <div class="mt-8">
+            <a href="/register/" class="cta">Register</a>
+          </div>
+        </div>
+      </section>
+      <section class="bg-custom-beige px-4 py-24" data-visible="loggedIn">
+        <div class="text-center">
+          <h1>List Your Treasure with Us</h1>
+          <p class="mt-2">
+            Dive into the excitement of auctions - start your listing journey
+            today!
+          </p>
+          <div class="mt-8">
+            <a href="/create-listing/" class="cta">Create a listing</a>
+          </div>
+        </div>
+      </section>
+      <section class="px-4 py-24 bg-custom-light">
+        <h2 class="text-center">Recent listings</h2>
+        <div class="flex-col">
+          <div class="pb-5 mt-6">
+            <label for="searchBar" class="block text-center pb-1"
+              >Search listings</label
+            >
+            <input
+              type="search"
+              class="m-0 block max-w-200px mx-auto min-w-0 flex-auto rounded-2xl border border-solid border-[#161616] bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:text-neutral-700 focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+              id="searchBar"
+              placeholder="Type query"
+            />
+          </div>
+          <div class="text-center pb-10">
+            <select
+              id="sortOrder"
+              class="px-16 py-1 border border-solid border-[#161616] rounded-2xl bg-transparent"
+            >
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+        </div>
+        <div
+          id="listingsContainer"
+          class="grid grid-cols-1 gap-6 max-w-5xl mx-auto sm:grid-cols-2"
+        >
+          <span class="loader"></span>
+        </div>
+        <div class="errorMessage hidden"></div>
+        <button id="loadMoreButton" class="btn mt-10 mx-auto hidden">
+          Load More
+        </button>
+      </section>
+    </main>
+    <footer class="bg-custom-black px-4 py-24">
+      <div class="max-w-[200px] mx-auto">
+        <img
+          src="./src/assets/images/logo-white.png"
+          alt="logo"
+          class="object-cover"
+          alt="logo"
+        />
+      </div>
+      <div class="text-center text-white">
+        <p>hi@auctionhouse.com</p>
+        <p>&copy; All rights reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>
