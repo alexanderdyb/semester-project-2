@@ -1,3 +1,6 @@
+import { updateAvatar } from "../api/profile/avatar.mjs";
+import { displayError } from "./userFeedback/error.mjs";
+
 /**
  * Sets up an event listener for the "Update Avatar" button.
  * When the button is clicked, it attempts to update the user's avatar with the input value.
