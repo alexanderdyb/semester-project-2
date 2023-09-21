@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Create a listing at Auction House" />
     <title>Create a listing | Auction House</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../src/assets/images/favicon.jpg"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,7 +30,7 @@
           <a href="/">
             <img
               src="../src/assets/images/logo-black-nav.png"
-              alt="logo"
+              alt="The logo to Auction House"
               id="logo"
             />
           </a>
@@ -87,30 +92,32 @@
                 title="Enter a title"
               />
               <label for="description">Description</label>
-              <input
+              <textarea
                 class="border-[1px] border-gray-400 p-1 mb-2"
                 id="description"
                 type="text"
                 name="description"
-              />
-              <label>Media URLs</label>
+              ></textarea>
               <div class="multi-inputs flex flex-col mb-3 gap-2" id="media">
+                <label for="media1">Media URL 1</label>
                 <input
                   type="url"
                   name="media1"
-                  placeholder="Media URL 1"
+                  id="media1"
                   class="border-[1px] border-gray-400 p-1"
                 />
+                <label for="media2">Media URL 2</label>
                 <input
                   type="url"
                   name="media2"
-                  placeholder="Media URL 2"
+                  id="media2"
                   class="border-[1px] border-gray-400 p-1"
                 />
+                <label for="media3">Media URL 3</label>
                 <input
                   type="url"
                   name="media3"
-                  placeholder="Media URL 3"
+                  id="media3"
                   class="border-[1px] border-gray-400 p-1"
                 />
               </div>
@@ -148,7 +155,7 @@
       <div class="max-w-[200px] mx-auto">
         <img
           src="../src/assets/images/logo-white.png"
-          alt="logo"
+          alt="Logo"
           class="object-cover"
         />
       </div>
