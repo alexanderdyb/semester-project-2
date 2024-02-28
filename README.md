@@ -1,9 +1,5 @@
 # Semester Project 2: Auction House
 
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
-
-A simple overview of the use/purpose of the project.
-
 ## Description
 
 Auction House is a website that allows users to participate in auctions, create their own listings, and bid. The user can register, login and search through listings. The user also has a account page where he/she can update their avatar and look at their own created listings. All the listings has an details page where the users can get more information about the listing.
